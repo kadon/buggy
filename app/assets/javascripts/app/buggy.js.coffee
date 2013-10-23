@@ -10,6 +10,7 @@ window.App =
   Views: {}
   Collections: {}
   Models: {}
+  Vent: _.clone(Backbone.Events)
   initialize: ->
     console.log "Initializing application"
     new App.Routers.MainRouter()

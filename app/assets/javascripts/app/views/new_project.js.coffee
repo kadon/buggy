@@ -5,20 +5,13 @@ class App.Views.NewProject extends Backbone.View
   events:
     "click button": "saveProject"
  
-  #initialize: ->
-  #  @listenTo @model, "sync", @triggerProjectCreate
-
-  #triggerProjectCreate: ->
-  #  App.Vent.trigger "project:create", @model
-
   render: ->
-    @$el.html(@template())
+    @$el.html(@template(@model.toJSON()))
     @
 
   saveProject: (e) ->
     e.preventDefault()
     @model.set name: @$("#name").val()
     @model.set description: @$("#description").val()
-    #@model.save()
     @model.save {},
       success: (model) -> App.Vent.trigger "project:create", model

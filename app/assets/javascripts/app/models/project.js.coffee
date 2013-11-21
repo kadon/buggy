@@ -1,6 +1,7 @@
 class App.Models.Project extends Backbone.Model
   urlRoot: "/projects"
 
+  #If we remove this validate function, the validation will be only on the server side
   validate: (attrs, options) ->
     errors = {}
     unless attrs.name

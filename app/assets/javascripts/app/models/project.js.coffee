@@ -1,7 +1,13 @@
 class App.Models.Project extends Backbone.Model
   urlRoot: "/projects"
 
-  #If we remove this validate function, the validation will be only on the server side
+  initialize: ->
+    @listenTo @, "change:issues", @convertIssues
+
+  convertIssues: ->
+    @issues = new App.Collections.Issues( @get('issues') )
+
+  #If we remove this validate function, the validation will be done only on the server side
   validate: (attrs, options) ->
     errors = {}
     unless attrs.name

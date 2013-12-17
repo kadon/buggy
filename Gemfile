@@ -23,6 +23,9 @@ gem 'handlebars_assets'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+#Authentication
+gem "sorcery", git: "https://github.com/NoamB/sorcery"
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
